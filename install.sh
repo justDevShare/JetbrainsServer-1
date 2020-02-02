@@ -1,6 +1,5 @@
 #!/bin/bash
-#URL: https://github.com/yushangcl/JetbrainsServer
-#E-mail: gayhub@live.cn
+#URL: https://https://github.com/justDevShare/JetbrainsServer-1
 clear
 echo "    ################################################"
 echo "    #                                              #"
@@ -28,14 +27,14 @@ else
   arch=32
 fi
 #Build Jetbrains Server
-git clone https://github.com/yushangcl/JetbrainsServer
+git clone https://github.com/justDevShare/JetbrainsServer-1
 if cat /etc/*-release | grep -Eqi "raspbian"; then
-  mv JetbrainsServer/binaries/IntelliJIDEALicenseServer_linux_arm jetbrains
+  mv JetbrainsServer-1/binaries/IntelliJIDEALicenseServer_linux_arm jetbrains
 else
   if [ "$arch" -eq 32 ]; then
-    mv JetbrainsServer/binaries/IntelliJIDEALicenseServer_linux_i386 jetbrains
+    mv JetbrainsServer-1/binaries/IntelliJIDEALicenseServer_linux_i386 jetbrains
   else
-    mv JetbrainsServer/binaries/IntelliJIDEALicenseServer_linux_amd64 jetbrains
+    mv JetbrainsServer-1/binaries/IntelliJIDEALicenseServer_linux_amd64 jetbrains
   fi
 fi
 mv jetbrains /usr/bin/
@@ -43,7 +42,7 @@ chmod +x /usr/bin/jetbrains
 nohup jetbrains -p 1017 -u Bat.IT > /home/jetbrains.log 2>&1 &
 echo -ne '\n@reboot root nohup jetbrains > /home/jetbrains.log 2>&1 &\n\n' >>/etc/crontab
 #Cleaning Work
-rm -rf JetbrainsServer
+rm -rf JetbrainsServer-1
 #Check jetbrains server status
 sleep 1
 echo "Check Jetbrains Server status..."
